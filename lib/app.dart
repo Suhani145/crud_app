@@ -8,7 +8,7 @@ class CrudApp extends StatelessWidget
     return MaterialApp(
       title: 'Crud App',
       home: const ProductList(),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
       theme: _lightThemeData(),
       darkTheme: _dartThemeData(),
     );
