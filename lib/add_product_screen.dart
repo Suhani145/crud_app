@@ -176,18 +176,18 @@ class _AddProductList extends State<AddProductList> {
     );
 
     if (response.statusCode == 200) {
-     showSnackBar('Product added successfully');
+     showSnackBar('Product added successfully', Colors.green.shade700);
       popNavigation(true);
     } else {
-      showSnackBar('Failed to add product');
+      showSnackBar('Failed to add product', Colors.red.shade600);
     }
     setState(() {
       _addProductInProgress = false;
     });
   }
-  void showSnackBar(String content) {
+  void showSnackBar(String content, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
-         SnackBar(content:Text(content)));
+         SnackBar(content:Text(content), backgroundColor: color,));
   }
   void popNavigation(bool isUpdated) => Navigator.pop(context, isUpdated);
 }

@@ -176,19 +176,19 @@ class _UpdateProductList extends State<UpdateProductList> {
     );
 
     if (response.statusCode == 200) {
-      showSnackBar('Product updated successfully');
+      showSnackBar('Product updated successfully', Colors.green.shade600);
       popNavigation(true);
     } else {
-      showSnackBar('Failed to update product');
+      showSnackBar('Failed to update product', Colors.red.shade600);
     }
 
     setState(() {
       _updateProductInProgress = false;
     });
   }
-  void showSnackBar(String content) {
+  void showSnackBar(String content, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content:Text(content)));
+        SnackBar(content:Text(content), backgroundColor: color,));
   }
   void popNavigation(bool isUpdated) => Navigator.pop(context, isUpdated);
 }

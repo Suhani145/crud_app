@@ -112,7 +112,7 @@ class _ProductList extends State<ProductList> {
       final jsonProductList = decodedData['data'];
       productList = jsonProductList.map<PhotoModel>((json) => PhotoModel.fromJson(json)).toList();
     } else {
-      showSnackBar('Get Products Failed');
+      showSnackBar('Get Products Failed', Colors.red.shade600);
     }
 
     setState(() {
@@ -131,7 +131,7 @@ class _ProductList extends State<ProductList> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('No', style: TextStyle(color: Colors.green.shade600)),
+              child: Text('No', style: TextStyle(color: Colors.green.shade700)),
             ),
             TextButton(
               onPressed: () {
@@ -159,11 +159,11 @@ class _ProductList extends State<ProductList> {
       setState(() {
         _getProductListInProgress = false;
       });
-      showSnackBar('Deletion failed');
+      showSnackBar('Deletion failed', Colors.red.shade600);
     }
   }
-  void showSnackBar(String content) {
+  void showSnackBar(String content, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content:Text(content)));
+        SnackBar(content:Text(content), backgroundColor: color,));
   }
 }
