@@ -1,5 +1,5 @@
 class PhotoModel {
-  String? Id;
+  String? id;
   String? productName;
   String? productCode;
   String? img;
@@ -9,7 +9,7 @@ class PhotoModel {
   String? createdDate;
 
   PhotoModel.fromJson(Map<String, dynamic> json) {
-    Id = json['_id'];
+    id = json['_id'];
     productName = json['ProductName'];
     productCode = json['ProductCode'];
     img = json['Img'];

@@ -11,7 +11,6 @@ class UpdateProductList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _UpdateProductList();
 }
-
 class _UpdateProductList extends State<UpdateProductList> {
   final TextEditingController _nameTEController = TextEditingController();
   final TextEditingController _priceTEController = TextEditingController();
@@ -158,7 +157,7 @@ class _UpdateProductList extends State<UpdateProductList> {
       _updateProductInProgress = true;
     });
 
-    String updateUrl = 'https://crud.teamrabbil.com/api/v1/UpdateProduct/${widget.product.Id}';
+    String updateUrl = 'https://crud.teamrabbil.com/api/v1/UpdateProduct/${widget.product.id}';
     Uri updateProductUri = Uri.parse(updateUrl);
 
     Response response = await post(

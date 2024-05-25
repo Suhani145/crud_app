@@ -11,7 +11,6 @@ class ProductList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _ProductList();
 }
-
 class _ProductList extends State<ProductList> {
   bool _getProductListInProgress = false;
   List<PhotoModel> productList = [];
@@ -87,7 +86,7 @@ class _ProductList extends State<ProductList> {
           ),
           IconButton(
             onPressed: () {
-              showDeleteConfirmationDialog(product.Id ?? '');
+              showDeleteConfirmationDialog(product.id ?? '');
             },
             icon: const Icon(Icons.delete),
           ),
@@ -118,7 +117,6 @@ class _ProductList extends State<ProductList> {
       _getProductListInProgress = false;
     });
   }
-
   void showDeleteConfirmationDialog(String productId) {
     showDialog(
       context: context,
@@ -145,7 +143,6 @@ class _ProductList extends State<ProductList> {
       },
     );
   }
-
   Future<void> _deleteProduct(String productId) async {
     setState(() {
       _getProductListInProgress = true;

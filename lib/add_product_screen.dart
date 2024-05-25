@@ -172,7 +172,6 @@ class _AddProductList extends State<AddProductList> {
         const SnackBar(content: Text('Failed to add product')),
       );
     }
-
     setState(() {
       _addProductInProgress = false;
     });
