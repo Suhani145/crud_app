@@ -68,9 +68,8 @@ class _ProductList extends State<ProductList> {
       subtitle: Wrap(
         children: [
           Text('Unit Price: ${product.unitPrice ?? ''}  '),
-          //const SizedBox(width: 4),
           Text('Quantity: ${product.qty ?? ''}  '),
-          Text('Total Price: ${product.productCode ?? ''}  '),
+          Text('Total Price: ${product.totalPrice ?? ''}  '),
         ],
       ),
       trailing: Wrap(
