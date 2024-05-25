@@ -108,9 +108,7 @@ class _ProductList extends State<ProductList> {
       final jsonProductList = decodedData['data'];
       productList = jsonProductList.map<PhotoModel>((json) => PhotoModel.fromJson(json)).toList();
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Get Products Failed')),
-      );
+      showSnackBar('Get Products Failed');
     }
 
     setState(() {
@@ -157,9 +155,11 @@ class _ProductList extends State<ProductList> {
       setState(() {
         _getProductListInProgress = false;
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Deletion failed')),
-      );
+      showSnackBar('Deletion failed');
     }
+  }
+  void showSnackBar(String content) {
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content:Text(content)));
   }
 }

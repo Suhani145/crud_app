@@ -176,18 +176,19 @@ class _UpdateProductList extends State<UpdateProductList> {
     );
 
     if (response.statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Product updated successfully')),
-      );
-      Navigator.pop(context, true);
+      showSnackBar('Product updated successfully');
+      popNavigation(true);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to update product')),
-      );
+      showSnackBar('Failed to update product');
     }
 
     setState(() {
       _updateProductInProgress = false;
     });
   }
+  void showSnackBar(String content) {
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content:Text(content)));
+  }
+  void popNavigation(bool isUpdated) => Navigator.pop(context, isUpdated);
 }

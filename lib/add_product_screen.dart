@@ -40,7 +40,9 @@ class _AddProductList extends State<AddProductList> {
                   decoration: const InputDecoration(
                       labelText: 'Name', hintText: 'Name'),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
                       return 'Write your product name';
                     }
                     return null;
@@ -54,7 +56,9 @@ class _AddProductList extends State<AddProductList> {
                   decoration: const InputDecoration(
                       labelText: 'Unit Price', hintText: 'Unit Price'),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
                       return 'Write your unit price';
                     }
                     return null;
@@ -68,7 +72,9 @@ class _AddProductList extends State<AddProductList> {
                   decoration: const InputDecoration(
                       labelText: 'Product Code', hintText: 'Product Code'),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
                       return 'Write your product code';
                     }
                     return null;
@@ -82,7 +88,9 @@ class _AddProductList extends State<AddProductList> {
                   decoration: const InputDecoration(
                       labelText: 'Quantity', hintText: 'Quantity'),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
                       return 'Write your quantity';
                     }
                     return null;
@@ -96,7 +104,9 @@ class _AddProductList extends State<AddProductList> {
                   decoration: const InputDecoration(
                       labelText: 'Total Price', hintText: 'Total Price'),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
                       return 'Write your Total Price';
                     }
                     return null;
@@ -109,7 +119,9 @@ class _AddProductList extends State<AddProductList> {
                   decoration: const InputDecoration(
                       labelText: 'Image', hintText: 'Image'),
                   validator: (String? value) {
-                    if (value == null || value.trim().isEmpty) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
                       return 'Write your image';
                     }
                     return null;
@@ -120,7 +132,8 @@ class _AddProductList extends State<AddProductList> {
                   width: double.infinity,
                   child: Visibility(
                     visible: !_addProductInProgress,
-                    replacement: const Center(child: CircularProgressIndicator()),
+                    replacement: const Center(
+                        child: CircularProgressIndicator()),
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -163,17 +176,18 @@ class _AddProductList extends State<AddProductList> {
     );
 
     if (response.statusCode == 200) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Product added successfully')),
-      );
-      Navigator.pop(context, true);
+     showSnackBar('Product added successfully');
+      popNavigation(true);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to add product')),
-      );
+      showSnackBar('Failed to add product');
     }
     setState(() {
       _addProductInProgress = false;
     });
   }
+  void showSnackBar(String content) {
+    ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content:Text(content)));
+  }
+  void popNavigation(bool isUpdated) => Navigator.pop(context, isUpdated);
 }
