@@ -29,15 +29,19 @@ class _ProductList extends State<ProductList> {
       ),
       body: RefreshIndicator(
         onRefresh: _getProductList,
+        color: Colors.purple,
         child: Visibility(
           visible: !_getProductListInProgress,
-          replacement: const Center(child: CircularProgressIndicator()),
+          replacement: const Center(child: CircularProgressIndicator(color: Colors.purple)),
           child: ListView.separated(
             itemCount: productList.length,
             itemBuilder: (context, index) {
               return _productListDetails(productList[index]);
             },
-            separatorBuilder: (_, __) => const Divider(),
+            separatorBuilder: (_, __) =>Divider(color: Colors.purple.shade200,
+              height:25,
+              indent: 10,
+              endIndent: 10,),
           ),
         ),
       ),
@@ -51,7 +55,8 @@ class _ProductList extends State<ProductList> {
             _getProductList();
           }
         },
-        child: const Icon(Icons.add),
+        backgroundColor: Colors.purple,
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
@@ -82,13 +87,13 @@ class _ProductList extends State<ProductList> {
                 _getProductList();
               }
             },
-            icon: const Icon(Icons.edit),
+            icon: Icon(Icons.edit, color: Colors.green.shade600),
           ),
           IconButton(
             onPressed: () {
               showDeleteConfirmationDialog(product.id ?? '');
             },
-            icon: const Icon(Icons.delete),
+            icon: Icon(Icons.delete, color: Colors.red.shade500),
           ),
         ],
       ),
@@ -120,21 +125,21 @@ class _ProductList extends State<ProductList> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Delete'),
+          title:  Text('Delete', style: TextStyle(color: Colors.red.shade800)),
           content: const Text('Are you sure you want to delete?'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('No'),
+              child: Text('No', style: TextStyle(color: Colors.green.shade600)),
             ),
             TextButton(
               onPressed: () {
                 _deleteProduct(productId);
                 Navigator.pop(context);
               },
-              child: const Text('Yes'),
+              child:Text('Yes', style: TextStyle(color: Colors.red.shade800)),
             ),
           ],
         );

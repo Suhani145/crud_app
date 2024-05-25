@@ -133,7 +133,7 @@ class _AddProductList extends State<AddProductList> {
                   child: Visibility(
                     visible: !_addProductInProgress,
                     replacement: const Center(
-                        child: CircularProgressIndicator()),
+                        child: CircularProgressIndicator(color: Colors.purple)),
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {

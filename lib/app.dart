@@ -16,6 +16,14 @@ class CrudApp extends StatelessWidget
   ThemeData _lightThemeData() {
     return ThemeData(
       brightness: Brightness.light,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+          toolbarHeight: 80,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(10))
+          )
+      ),
       inputDecorationTheme: const InputDecorationTheme(
         enabledBorder:
         OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
@@ -42,6 +50,14 @@ class CrudApp extends StatelessWidget
   ThemeData _dartThemeData() {
     return ThemeData(
       brightness: Brightness.dark,
+      appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.purple,
+          foregroundColor: Colors.white,
+          toolbarHeight: 80,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(10))
+          )
+      ),
       inputDecorationTheme: const InputDecorationTheme(
         enabledBorder:
         OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),

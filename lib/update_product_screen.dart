@@ -133,7 +133,7 @@ class _UpdateProductList extends State<UpdateProductList> {
                   width: double.infinity,
                   child: Visibility(
                     visible: !_updateProductInProgress,
-                    replacement: const Center(child: CircularProgressIndicator()),
+                    replacement: const Center(child: CircularProgressIndicator(color: Colors.purple)),
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
